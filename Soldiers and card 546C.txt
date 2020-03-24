@@ -1,0 +1,74 @@
+#include <iostream>
+using namespace std;
+#include<queue>
+
+int main()
+{
+  int t;
+  cin>>t;
+    deque <int> a;
+    deque <int> b;
+  int c;
+  int m,n;
+    cin>>m;
+    for(int x=0; x<m; x++)
+    {
+        cin>>c;
+        a.push_front(c);
+    }
+  cin>>n;
+    for(int x=0; x<n; x++)
+    {
+
+        cin>>c;
+        b.push_front(c);
+    }
+    int winner;
+int step=0;
+    while(step < 100000)
+    {
+        int x,y;
+        x = a.back() ;
+        y = b.back() ;
+        if(x>y)
+        {
+            a.push_front(y);
+            a.push_front(x);
+            b.pop_back();
+            a.pop_back();
+            step++;
+
+        }
+
+        if(y>x)
+        {
+            b.push_front(x);
+            b.push_front(y);
+            b.pop_back();
+            a.pop_back();
+            step++;
+        }
+        if(a.empty())
+        {
+            winner = 2;
+            cout<<step<<" "<<winner;
+
+            break;
+        }
+
+        if(b.empty())
+        {
+            winner = 1;
+            cout<<step<<" "<<winner;
+            break;
+        }
+
+    }
+
+if(step>=100000)
+{
+    cout<<-1;
+}
+
+    return 0;
+}
