@@ -1,0 +1,57 @@
+long long int binary_search(long long l,long long int m, long long int c)
+{
+    long long int mid = l+(m-l)/2 ;
+    if(mid*mid ==c)
+    {
+        return mid;
+    }
+    
+    if(mid*mid > c && (mid-1)*(mid-1) < c)
+    {
+        return mid-1;
+    }
+    
+    if((mid+1)*(mid+1) > c && mid*mid < c)
+    {
+        return mid;
+    }
+    
+    if(mid*mid>c)
+    {
+        return binary_search(l,mid-1,c);
+    }
+    
+    if(mid*mid<c)
+    {
+        return binary_search(mid+1, m,c);
+    }
+    
+}
+
+
+
+int Solution::sqrt(int B) 
+{   
+    long long A = B;
+  
+    if(A==0)
+    {
+        return 0;
+    }
+    
+    if(A==1 || A==2 || A==3)
+    {
+        return 1;
+    }
+    
+    if(A==4)
+    {
+        return 2;
+    }
+    else
+    {
+    long long int r = binary_search(1, A/2+1,A);
+    int c=r;
+    return c;
+}
+}
