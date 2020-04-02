@@ -1,0 +1,40 @@
+int Solution::canCompleteCircuit(const vector<int> &a, const vector<int> &b) {
+int m,n,total;
+n= a.size();
+int max_index=0;
+vector<int> c;
+for(int x=0; x<n; x++)
+{
+    m = a[x] - b[x];
+    c.push_back(m);
+}
+int index = -1;
+for(int x=0; x<n; x++)
+{
+    if(c[x]>=0)
+    {
+        total =0;
+        for(int y=x ;y<n; y++)
+        {
+            total = total + c[y];
+            if(total<0)
+            {
+                break;
+            }
+        }
+       if(total>=0){
+        for(int y=0; y<x; y++)
+        {
+            total = total +c[y];
+            if(total <0 ){break;}
+        }
+       }
+       if(total>=0)
+       {
+           index=x;
+           break;
+       }
+    }
+}
+return index;
+}
