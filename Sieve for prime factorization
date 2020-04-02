@@ -1,0 +1,39 @@
+int arr[12248 ];
+void sieve()
+{
+   for(int x=1; x<=12246 ; x++)
+   {
+       arr[x] = x;
+   }
+
+   for(int x=4; x<=12246 ; x+=2)
+   {
+       arr[x] = 2;
+   }
+   for(int x=3; x*x<=12246 ; x++)
+   {
+       if(arr[x]==x)
+       {
+    for(int y=x*x; y<=12246 ; y+=x)
+       {
+           if(arr[y] == y)
+           {
+               arr[y] = x;
+           }
+       }
+   }
+}
+}
+int main()
+{
+sieve();
+int x=12246 ;
+while(x!=1)
+{
+    cout<< arr[x]<<endl;
+    x = x / arr[x];
+}
+
+
+return 0;
+}
