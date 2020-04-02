@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+int Solution::majorityElement(const vector<int> &t) {
+    
+int m,n,total,index;
+vector <int> a;
+a=t;
+n= a.size();
+sort(a.begin(),a.begin()+n);
+int value = a[0];
+int count1 = 0;
+for(int x=0; x<n; x++)
+{
+   if(a[x]==value)
+   {
+
+       count1++;
+       if(count1>floor(n/2))
+       {
+           index = a[x];
+           break;
+       }
+   }
+
+   else
+   {
+       value = a[x];
+       count1 = 1;
+   }
+}
+
+return index;
+}
