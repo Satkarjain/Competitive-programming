@@ -1,0 +1,26 @@
+#include <iostream>
+#include<vector>
+#include<set>
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+  int m,n,c,input;
+  cin>>m>>n;
+  vector <vector<int>> a;
+  for(int x=0; x<m; x++)
+  {
+      vector <int> i;
+      a.push_back(i);
+      for(int y=0; y<n; y++)
+      {
+          cin>> input;
+          a[x].push_back(input);
+      }
+  }
+  
+  
+
+    return 0;
+}
