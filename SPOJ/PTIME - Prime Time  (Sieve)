@@ -1,0 +1,89 @@
+#include <iostream>
+#include<vector>
+#include<set>
+#include <bits/stdc++.h>
+using namespace std;
+int arr[10010];
+void sieve()
+{
+   for(int x=2; x<=10010 ; x++)
+   {
+       arr[x] = x;
+   }
+
+   for(int x=4; x<=10010 ; x+=2)
+   {
+       arr[x] = 2;
+   }
+   for(int x=3; x*x<=10010 ; x++)
+   {
+       if(arr[x]==x)
+       {
+    for(int y=x*x; y<=10010 ; y+=x)
+       {
+           if(arr[y] == y)
+           {
+               arr[y] = x;
+           }
+       }
+   }
+}
+}
+int main()
+{  int p;
+   sieve();
+    bool flag;
+    map<int, int> a;
+    int b,x;
+    map<int, int>::iterator i;
+    cin>>b;
+    for(int y=2; y<=b; y++)
+    {
+
+        x=y;
+
+
+        while(x!=1)
+    {
+        flag = false;
+        //cout<<arr[x]<<endl;
+    for( i=a.begin(); i!= a.end() ; ++i)
+    {
+        if(i->first == arr[x])
+        {
+            i->second = i->second + 1;
+            flag = true;
+        }
+    }
+    if(!flag)
+    {
+        //cout<<arr[x]<<endl;
+        a.insert(pair<int,int>(arr[x],1));
+
+    }
+
+    x = x / arr[x];
+    }
+    }
+
+vector<int> a1;
+vector<int> a2;
+
+   for(i = a.begin(); i != a.end() ; ++i)
+   {
+       a1.push_back(i->first);
+       a2.push_back(i->second);
+   }
+
+   for(int x=0; x<a1.size(); x++)
+   {
+       if(x== a1.size()-1)
+       {
+                cout<<a1[x]<<"^"<<a2[x];
+
+       }
+       else
+       cout<<a1[x]<<"^"<<a2[x]<<" * ";
+   }
+    return 0;
+}
